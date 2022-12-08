@@ -1,3 +1,5 @@
 # Algorithms
 
-LeetCode questions repository
+LeetCode challenges
+Udemy courses exercises
+Logic practice
