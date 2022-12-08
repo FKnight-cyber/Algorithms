@@ -141,7 +141,7 @@ int main() {
         }
 
         if(choice == 'Q' || choice == 'q') {
-            cout << "Goobye!" << endl;
+            cout << "Goodbye!" << endl;
             return 0;
         }
 
