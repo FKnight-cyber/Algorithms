@@ -15,6 +15,8 @@ public class Main {
 
         for(int i = 1; i <= n; i++) {
             System.out.printf("%d %d %d%n", i, i*i, i*i*i);
-        }     
+        }
+
+        sc.close();
     }
 }
