@@ -37,10 +37,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Task extends StatelessWidget {
+class Task extends StatefulWidget {
   final String task;
   const Task(this.task, {super.key});
 
+  @override
+  State<Task> createState() => _TaskState();
+}
+
+class _TaskState extends State<Task> {
+  int nivel = 0;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -51,30 +57,42 @@ class Task extends StatelessWidget {
             color: Colors.blue,
             height: 140,
           ),
-          Container(
-            height: 100,
-            color: Colors.white,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 72,
-                  height: 100,
-                  color: Colors.black26,
+          Column(
+            children: [
+              Container(
+                height: 100,
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: 72,
+                      height: 100,
+                      color: Colors.black26,
+                    ),
+                    Text(
+                      widget.task,
+                      style: TextStyle(
+                          fontSize: 24, overflow: TextOverflow.ellipsis),
+                    ),
+                    ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            nivel++;
+                          });
+                        },
+                        child: Icon(
+                          Icons.arrow_drop_up,
+                          color: Colors.white,
+                        ))
+                  ],
                 ),
-                Text(
-                  task,
-                  style:
-                      TextStyle(fontSize: 24, overflow: TextOverflow.ellipsis),
-                ),
-                ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(
-                      Icons.arrow_drop_up,
-                      color: Colors.white,
-                    ))
-              ],
-            ),
+              ),
+              Text(
+                'Nível: $nivel',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              )
+            ],
           )
         ]),
       ),
