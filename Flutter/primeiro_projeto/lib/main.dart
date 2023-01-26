@@ -22,16 +22,11 @@ class MyApp extends StatelessWidget {
           ),
           body: ListView(
             children: [
-              Task('Minha tarefa'),
-              Task('Flutter'),
-              Task('Java'),
-              Task('Javascript'),
-              Task('C++'),
-              Task('Python'),
-              Task('Dart'),
-              Task('C'),
-              Task('Assembly'),
-              Task('React'),
+              Task('Dormir', 'https://www.drronsanimalhospitalsimivalley.com/wp-content/uploads/2018/11/Dog-Sleeping-Over-Mat.jpg'),
+              Task('Flutter', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgZZOcHHzuMXdmgLHu8bUKA0Q45OjzhqBSw2oTkt85c_6xjU5fskEIDMh8B5jL6-KSQTo&usqp=CAU'),
+              Task('Java', 'https://miro.medium.com/max/625/1*C-zXmTMHObZWyZBUbdruGg.jpeg'),
+              Task('Javascript', 'https://thumbs.dreamstime.com/b/smart-working-dog-using-computer-typing-laptop-keyboard-designer-freelancer-remotely-home-pet-clothes-gray-jumper-hoodie-176711684.jpg'),
+              Task('C++', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2k6bZcHGkeHdrlBkNpxSQ3YxNbIpNdFUXPQ&usqp=CAU'),
             ],
           ),
         ));
@@ -40,7 +35,8 @@ class MyApp extends StatelessWidget {
 
 class Task extends StatefulWidget {
   final String task;
-  const Task(this.task, {super.key});
+  final String imageUrl;
+  const Task(this.task, this.imageUrl, {super.key});
 
   @override
   State<Task> createState() => _TaskState();
@@ -70,6 +66,7 @@ class _TaskState extends State<Task> {
                       width: 72,
                       height: 100,
                       color: Colors.black26,
+                      child: Image.network(widget.imageUrl, fit: BoxFit.cover,),
                     ),
                     Text(
                       widget.task,
@@ -92,7 +89,10 @@ class _TaskState extends State<Task> {
                                 Icons.arrow_drop_up,
                                 color: Colors.white,
                               ),
-                              Text('Up!', style: TextStyle(color: Colors.white),)
+                              Text(
+                                'Up!',
+                                style: TextStyle(color: Colors.white),
+                              )
                             ],
                           )),
                     )
@@ -108,7 +108,7 @@ class _TaskState extends State<Task> {
                       width: 200,
                       child: LinearProgressIndicator(
                         color: Colors.white,
-                        value: nivel/10,
+                        value: nivel / 10,
                       ),
                     ),
                   ),
