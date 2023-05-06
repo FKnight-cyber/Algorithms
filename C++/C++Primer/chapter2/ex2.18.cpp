@@ -7,12 +7,14 @@ value to which the pointer points
 
 using namespace std;
 
-int main() {
+int main()
+{
   int i{10}, *p1 = &i;
 
-  cout << i << " and " << *p1 << endl;
+  cout
+      << i << " and " << *p1 << endl;
 
-  int i2 {20};
+  int i2{20};
   p1 = &i2;
 
   cout << i << " and " << *p1 << endl;
